@@ -88,7 +88,14 @@ class GmpConan(ConanFile):
                 autotools.configure(args=args)
 
             autotools.make()
+            if 'gcc' == self.settings.compiler and 'Windows' == self.settings.os:
+                if self.env['DLLTOOL'] is not None:
+                    self.run('{dlltool} --output-lib gmp.lib --input-def .libs/libgmp-3.dll.def --dllname libgmp-10.dll'.format(dlltool=self.env['DLLTOOL']))
             autotools.make(args=['install'])
+
+    def package(self):
+        self.copy("COPYING*", src="gmp", dst="")
+        self.copy("gmp.lib",  src="gmp", dst="lib")
 
     def package_info(self):
         # We get lib<lib>.a: mpn, mpz, mpq, mpf, printf, scanf, random,
@@ -101,7 +108,7 @@ class GmpConan(ConanFile):
     def package_id(self):
         # On windows, we cross compile this with mingw.. But because it's
         # compatible with MSVC, set it's hash to reflect that.
-        if 'gcc' == self.settings.compiler and 'Windows' == platform.system():
+        if 'gcc' == self.settings.compiler and 'Windows' == self.settings.os:
             self.info.settings.compiler = 'Visual Studio'
             self.info.settings.compiler.version = int(str(self.options.msvc))
 
