@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# -*- coding: future_fstrings -*-
 # -*- coding: utf-8 -*-
 
 import os, shutil, platform, re
@@ -12,8 +11,8 @@ class GmpConan(ConanFile):
     version     = '6.1.2'
     md5_hash    = '8ddbb26dc3bd4e2302984debba1406a5'
     description = 'The GNU Multiple Precision Arithmetic Library'
-    url         = 'https://github.com/kheaactua/conan-gmp'
-    license     = 'MIT'
+    url         = 'https://github.com/CGAL/conan-gmp'
+    license     = 'MIT' # TODO: fix this
     settings    = 'os', 'compiler', 'arch', 'build_type'
     options = {
         'shared':            [True, False],
