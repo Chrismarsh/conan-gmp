@@ -3,7 +3,7 @@ env:
       - CONAN_REFERENCE: "gmp/6.1.2"
       - CONAN_USERNAME: "CHM"
       - CONAN_LOGIN_USERNAME: "chrismarsh"
-      - CONAN_CHANNEL: "dev"
+      - CONAN_CHANNEL: "stable"
       - CONAN_UPLOAD: "https://api.bintray.com/conan/chrismarsh/CHM"
       - MAKEFLAGS: "-j 2"
 
