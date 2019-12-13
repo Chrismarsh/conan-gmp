@@ -6,7 +6,7 @@ if __name__ == "__main__":
                                 archs=["x86_64"],
                                 build_types=["Release"])
                               
-    builder.add_common_builds(pure_c=False,shared_option_name="boost:shared")
+    builder.add_common_builds(pure_c=False,shared_option_name="gmp:shared")
 
     builder.remove_build_if(lambda build: build.settings["compiler.libcxx"] == "libstdc++")
 
@@ -15,7 +15,7 @@ if __name__ == "__main__":
 
         shared="shared"
 
-        if not options['boost:shared']:
+        if not options['gmp:shared']:
             shared = "static" 
 
         named_builds[settings['compiler'] +"_"+shared].append([settings, options, env_vars, build_requires, reference])
