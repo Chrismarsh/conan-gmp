@@ -16,7 +16,6 @@ class GmpConan(ConanFile):
     settings    = 'os', 'compiler', 'arch', 'build_type'
     options = {
         'shared':            [True, False],
-        'static':            [True, False],
         'disable_assembly':  [True, False],
         'enable_fat':        [True, False],
         'enable_cxx':        [True, False],
@@ -26,7 +25,6 @@ class GmpConan(ConanFile):
     }
     default_options = (
         'shared=True',
-        'static=True',
         'disable_assembly=False',
         'enable_fat=False',
         'enable_cxx=True',
@@ -71,8 +69,9 @@ class GmpConan(ConanFile):
                     self.output.info("Activated option! %s"%option_name)
                     args.append('--%s'%option_name)
 
+
             args.append('--%s-shared'%('enable' if self.options.shared else 'disable'))
-            args.append('--%s-static'%('enable' if self.options.static else 'disable'))
+            args.append('--%s-static'%('disable' if self.options.shared else 'enable'))
 
             if self.settings.os == "Linux" or self.settings.os == "Macos":
                 autotools.fpic = True
