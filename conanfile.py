@@ -41,6 +41,7 @@ class GmpConan(ConanFile):
         tools.check_md5(zip_name, self.md5_hash)
         tools.unzip(zip_name)
         shutil.move('gmp-{version}'.format(version=self.version), 'gmp')
+        tools.replace_in_file("gmp/configure", r"-install_name \$rpath/", "-install_name @rpath/")
         os.unlink(zip_name)
 
     def configure(self):
