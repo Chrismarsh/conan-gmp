@@ -35,7 +35,7 @@ class GmpConan(ConanFile):
 
     def source(self):
         zip_name = 'gmp-{version}.tar.bz2'.format(version=self.version)
-        tools.download('http://gnu.uberglobalmirror.com/gmp/{zip_name}'.format(zip_name=zip_name), zip_name)
+        tools.download('https://gmplib.org/download/gmp/{zip_name}'.format(zip_name=zip_name), zip_name)
         # Alternative
         # tools.download(f'http://gmplib.org/download/gmp/{zip_name}', zip_name)
         tools.check_md5(zip_name, self.md5_hash)
