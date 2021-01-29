@@ -9,7 +9,7 @@ class GmpConan(ConanFile):
     name        = 'gmp'
 
     description = 'The GNU Multiple Precision Arithmetic Library'
-    url         = 'https://github.com/CGAL/conan-gmp'
+    url         = 'https://github.com/Chrismarsh/conan-gmp'
     license     = 'MIT' # TODO: fix this
     settings    = 'os', 'compiler', 'arch', 'build_type'
     options = {
