@@ -7,7 +7,6 @@ class GmpConan(ConanFile):
     """ Building GMP for the intention of using it to build CGAL """
 
     name        = 'gmp'
-
     description = 'The GNU Multiple Precision Arithmetic Library'
     url         = 'https://github.com/Chrismarsh/conan-gmp'
     license     = 'MIT' # TODO: fix this
@@ -33,7 +32,6 @@ class GmpConan(ConanFile):
     def source(self):
         
         tools.get(**self.conan_data["sources"][self.version])
-        self._folder = "gdal-%s" % self.version
 
         shutil.move('gmp-{version}'.format(version=self.version), 'gmp')
         tools.replace_in_file("gmp/configure", r"-install_name \$rpath/", "-install_name @rpath/")
