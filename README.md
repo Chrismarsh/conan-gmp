@@ -1,21 +1,11 @@
-Conan build script for the GNU Multiple Precision Arithmetic library (GMP)
+# gmp
 
-Build
---
+This is a minimal Conan build of the gmp library for use with [CHM](https://github.com/Chrismarsh/CHM). 
 
-`conan create gmp/6.1.2@ntc/stable -pr <profile>`
+Build artifacts are uploaded to [Bintray](https://bintray.com/chrismarsh/CHM)
 
-Notes
---
 
-- This was created in order to build CGAL
-- This should build directly with g++
-- For MSVC, this is cross-compiled using the `msys2_mingw` profile (see
-  `profiles/msys2_mingw`, or better yet, the [Windows
-  Subsystem](http://docs.conan.io/en/latest/systems_cross_building/windows_subsystems.html?highlight=msys2_mingw)
-  Conan docs.)  The `package_id()` function then makes the package appear as if
-  it was build with Microsoft Visual Studio.
+```
+conan install gmp/6.2.1@CHM/stable
+```
 
-See also:
-- [conan-mpfr](https://github.com/kheaactua/conan-mpfr).
-- [conan-build-helpers](https://github.com/kheaactua/conan-build-helpers).

@@ -1,0 +1,5 @@
+sources:
+  6.1.2:
+    url: "https://gmplib.org/download/gmp/gmp-6.1.2.tar.bz2"
+  6.2.1:
+    url: "https://gmplib.org/download/gmp/gmp-6.2.1.tar.bz2"
