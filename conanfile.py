@@ -73,8 +73,8 @@ class GmpConan(ConanFile):
             with tools.environment_append(env_vars):
                 autotools.configure(args=args)
 
-            autotools.make()
-            autotools.make(args=['install'])
+                autotools.make()
+                autotools.make(args=['install'])
 
     def package(self):
         self.copy("COPYING*", src="gmp", dst="")
